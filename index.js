@@ -45,9 +45,10 @@ importStream.on('data', chunks => {
   rows.forEach(row => {
     const data = row.split(',');
     const labels = getLabels(line, data);
-    const star = getStellarData(labels, data);
-    const planet = getPlanetData(labels, data);
+    
     if (line !== 0) {
+      const star = getStellarData(labels, data);
+      const planet = getPlanetData(labels, data);
       db.put(star.id, star).then(result => console.log(result));
     }
     line++;
@@ -56,7 +57,7 @@ importStream.on('data', chunks => {
 
 importStream.on('end', () => {
   console.log(labels);
-  // console.log(results);
+  console.log(results);
 });
 
 importStream.read();
