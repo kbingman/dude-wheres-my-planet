@@ -36,7 +36,6 @@ const getLabels = (line, data) => {
 };
 
 let line = 0;
-let results = [];
 
 importStream.setEncoding('utf8');
 
